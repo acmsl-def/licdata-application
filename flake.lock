@@ -19,16 +19,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1733600428,
-        "narHash": "sha256-mbijpVBaHwg9/NsGt1Og1lr15lbAtEdm7bBQ61BrCWo=",
+        "lastModified": 1733638989,
+        "narHash": "sha256-0Y9atfmTugUCShZ0+HjQnVPnOvZsSSLOkd8QOyXUT9M=",
         "owner": "acmsl-def",
         "repo": "licdata-domain",
-        "rev": "315a9f71a1b3a1253e9136d6ff799bde73d06823",
+        "rev": "a948722fcc8e3691f152c6bc0ae01eac5d297cd8",
         "type": "github"
       },
       "original": {
         "owner": "acmsl-def",
-        "ref": "0.0.11",
+        "ref": "0.0.12",
         "repo": "licdata-domain",
         "type": "github"
       }
@@ -49,16 +49,90 @@
         ]
       },
       "locked": {
-        "lastModified": 1733600351,
-        "narHash": "sha256-cxIHzOZvliRLsYeyUn/Glsjl0fkmoJNOXibKzw0NMDw=",
+        "lastModified": 1733638847,
+        "narHash": "sha256-i439KJYe8+sTioqudczFL4C2tNhahHBwHM60L4729Jw=",
         "owner": "acmsl-def",
         "repo": "licdata-events",
-        "rev": "cc92d17e4a2adf7196e40f4a397804cf08b6f24c",
+        "rev": "62a8164852143195d60f01bd60dd91b5d5b9265a",
         "type": "github"
       },
       "original": {
         "owner": "acmsl-def",
-        "ref": "0.0.12",
+        "ref": "0.0.13",
+        "repo": "licdata-events",
+        "type": "github"
+      }
+    },
+    "acmsl-licdata-events-infrastructure": {
+      "inputs": {
+        "acmsl-licdata-events": "acmsl-licdata-events_2",
+        "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "acmsl-licdata-infrastructure",
+          "nixpkgs"
+        ],
+        "pythoneda-shared-pythonlang-banner": [
+          "acmsl-licdata-infrastructure",
+          "pythoneda-shared-pythonlang-banner"
+        ],
+        "pythoneda-shared-pythonlang-domain": [
+          "acmsl-licdata-infrastructure",
+          "pythoneda-shared-pythonlang-domain"
+        ],
+        "pythoneda-shared-pythonlang-infrastructure": "pythoneda-shared-pythonlang-infrastructure"
+      },
+      "locked": {
+        "lastModified": 1733638921,
+        "narHash": "sha256-nd6WoK3wLuY7aNMQp8Nd0LbZDIdWzfX8ucfwjKLXxUg=",
+        "owner": "acmsl-def",
+        "repo": "licdata-events-infrastructure",
+        "rev": "b5cf0662335fcf554c2ab9036773eaba98f927eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "acmsl-def",
+        "ref": "0.0.2",
+        "repo": "licdata-events-infrastructure",
+        "type": "github"
+      }
+    },
+    "acmsl-licdata-events_2": {
+      "inputs": {
+        "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "nixpkgs"
+        ],
+        "pythoneda-shared-pythonlang-banner": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "pythoneda-shared-pythonlang-banner"
+        ],
+        "pythoneda-shared-pythonlang-domain": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "pythoneda-shared-pythonlang-domain"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733638847,
+        "narHash": "sha256-i439KJYe8+sTioqudczFL4C2tNhahHBwHM60L4729Jw=",
+        "owner": "acmsl-def",
+        "repo": "licdata-events",
+        "rev": "62a8164852143195d60f01bd60dd91b5d5b9265a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "acmsl-def",
+        "ref": "0.0.13",
         "repo": "licdata-events",
         "type": "github"
       }
@@ -71,6 +145,7 @@
         "acmsl-licdata-events": [
           "acmsl-licdata-events"
         ],
+        "acmsl-licdata-events-infrastructure": "acmsl-licdata-events-infrastructure",
         "flake-utils": [
           "flake-utils"
         ],
@@ -85,17 +160,44 @@
         ]
       },
       "locked": {
-        "lastModified": 1733600508,
-        "narHash": "sha256-p312PXWnoQ/gG+mgQ36XT36Br1hNN+riaELRWleUwGk=",
+        "lastModified": 1733639078,
+        "narHash": "sha256-L7UVw/l/0hP/oGaZefeZK+MFwIl9GXuKZjnJTDfQhhY=",
         "owner": "acmsl-def",
         "repo": "licdata-infrastructure",
-        "rev": "9a96a07cc78c85b043c55c85b7f02d8ca4938faa",
+        "rev": "41c88797b6a0550a8bef642fbae5724d94adf164",
         "type": "github"
       },
       "original": {
         "owner": "acmsl-def",
-        "ref": "0.0.14",
+        "ref": "0.0.16",
         "repo": "licdata-infrastructure",
+        "type": "github"
+      }
+    },
+    "esdbclient": {
+      "inputs": {
+        "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "pythoneda-shared-pythonlang-infrastructure",
+          "flake-utils"
+        ],
+        "nixos": "nixos"
+      },
+      "locked": {
+        "dir": "esdbclient",
+        "lastModified": 1732904626,
+        "narHash": "sha256-SkDczDCF3mXWHsDAL0KVCpA4MjLvQ/1qrL0f4WdFiVo=",
+        "owner": "rydnr",
+        "repo": "nix-flakes",
+        "rev": "4c0d3c1f6b41ef03f7e8437b67041542b641599d",
+        "type": "github"
+      },
+      "original": {
+        "dir": "esdbclient",
+        "owner": "rydnr",
+        "ref": "esdbclient-1.1.3.0",
+        "repo": "nix-flakes",
         "type": "github"
       }
     },
@@ -112,6 +214,22 @@
         "owner": "numtide",
         "ref": "v1.0.0",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixos": {
+      "locked": {
+        "lastModified": 1717179513,
+        "narHash": "sha256-vboIEwIQojofItm2xGCdZCzW96U85l9nDW3ifMuAIdM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "63dacb46bf939521bdc93981b4cbb7ecb58427a0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "24.05",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -179,6 +297,45 @@
         "owner": "pythoneda-shared-pythonlang-def",
         "ref": "0.0.94",
         "repo": "domain",
+        "type": "github"
+      }
+    },
+    "pythoneda-shared-pythonlang-infrastructure": {
+      "inputs": {
+        "esdbclient": "esdbclient",
+        "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "nixpkgs"
+        ],
+        "pythoneda-shared-pythonlang-banner": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "pythoneda-shared-pythonlang-banner"
+        ],
+        "pythoneda-shared-pythonlang-domain": [
+          "acmsl-licdata-infrastructure",
+          "acmsl-licdata-events-infrastructure",
+          "pythoneda-shared-pythonlang-domain"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733487467,
+        "narHash": "sha256-ZUGtRZp2Hs7bXvSRJUvkJiyhVq2vKQ1rNQpLzru3ggU=",
+        "owner": "pythoneda-shared-pythonlang-def",
+        "repo": "infrastructure",
+        "rev": "c7790632f524e58ef58ae4402459ab0b82076fb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-shared-pythonlang-def",
+        "ref": "0.0.72",
+        "repo": "infrastructure",
         "type": "github"
       }
     },
