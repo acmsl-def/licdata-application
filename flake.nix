@@ -176,14 +176,11 @@
 
             unpackPhase = ''
               command cp -r ${src} .
-              sourceRoot=$(ls | grep -v env-vars)
+              sourceRoot=$(command ls | command grep -v env-vars)
               command chmod -R +w $sourceRoot
               command cp ${pyprojectToml} $sourceRoot/pyproject.toml
               command cp ${bannerTemplate} $sourceRoot/${banner_file}
               command cp ${entrypointTemplate} $sourceRoot/entrypoint.sh
-              pushd $sourceRoot
-              zip -r rest.zip org CreateClient
-              popd
             '';
 
             postPatch = ''
@@ -198,7 +195,7 @@
                 --replace "@BANNER@" "$out/bin/banner.sh"
             '';
 
-            postInstall = ''
+            postInstall = with python.pkgs; ''
               command pushd /build/$sourceRoot
               for f in $(command find . -name '__init__.py' | grep -v '.deps' | sed 's ^\./  g'); do
                 if [[ ! -e $out/lib/python${pythonMajorMinorVersion}/site-packages/$f ]]; then
@@ -207,9 +204,9 @@
                 fi
               done
               command popd
-              command mkdir $out/dist $out/bin
+              command mkdir -p $out/dist $out/deps/flakes
               command pip freeze | grep -v 'acmsl' | grep -v 'pythoneda' | grep -v 'rydnr' | grep -v 'stringtemplate3' | grep -v 'smmap' > /build/$sourceRoot/requirements.txt
-              command cp dist/${wheelName} /build/$sourceRoot/rest.zip /build/$sourceRoot/requirements.txt $out/dist
+              command cp dist/${wheelName} $out/dist
               command cp /build/$sourceRoot/entrypoint.sh $out/bin/${entrypoint}.sh
               command chmod +x $out/bin/${entrypoint}.sh
               command echo '#!/usr/bin/env sh' > $out/bin/banner.sh
@@ -217,6 +214,16 @@
               command echo "command echo 'Running $out/bin/banner'" >> $out/bin/banner.sh
               command echo "${python}/bin/python $out/lib/python${pythonMajorMinorVersion}/site-packages/${banner_file} \$@" >> $out/bin/banner.sh
               command chmod +x $out/bin/banner.sh
+              for dep in ${acmsl-licdata-domain} ${acmsl-licdata-events} ${acmsl-licdata-infrastructure} ${pythoneda-shared-pythonlang-banner} ${pythoneda-shared-pythonlang-domain}; do
+                command cp -r $dep/dist/* $out/deps || true
+                if [ -e $dep/deps ]; then
+                  command cp -r $dep/deps/* $out/deps || true
+                fi
+                METADATA=$dep/lib/python${pythonMajorMinorVersion}/site-packages/*.dist-info/METADATA
+                NAME="$(command grep -m 1 '^Name: ' $METADATA | command cut -d ' ' -f 2)"
+                VERSION="$(command grep -m 1 '^Version: ' $METADATA | command cut -d ' ' -f 2)"
+                command ln -s $dep $out/deps/flakes/$NAME-$VERSION || true
+              done
             '';
 
             meta = with pkgs.lib; {
