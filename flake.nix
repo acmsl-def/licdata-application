@@ -204,8 +204,7 @@
                 fi
               done
               command popd
-              command mkdir -p $out/dist $out/deps/flakes
-              command pip freeze | grep -v 'acmsl' | grep -v 'pythoneda' | grep -v 'rydnr' | grep -v 'stringtemplate3' | grep -v 'smmap' > /build/$sourceRoot/requirements.txt
+              command mkdir -p $out/bin $out/dist $out/deps/flakes
               command cp dist/${wheelName} $out/dist
               command cp /build/$sourceRoot/entrypoint.sh $out/bin/${entrypoint}.sh
               command chmod +x $out/bin/${entrypoint}.sh
