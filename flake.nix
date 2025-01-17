@@ -175,16 +175,15 @@
             # pythonImportsCheck = [ pythonpackage ];
 
             unpackPhase = ''
-              command cp -r ${src} .
-              sourceRoot=$(command ls | command grep -v env-vars)
-              command chmod -R +w $sourceRoot
-              command cp ${pyprojectToml} $sourceRoot/pyproject.toml
-              command cp ${bannerTemplate} $sourceRoot/${banner_file}
-              command cp ${entrypointTemplate} $sourceRoot/entrypoint.sh
+              command cp -r ${src}/* .
+              command chmod -R +w .
+              command cp ${pyprojectToml} ./pyproject.toml
+              command cp ${bannerTemplate} ./${banner_file}
+              command cp ${entrypointTemplate} ./entrypoint.sh
             '';
 
             postPatch = ''
-              substituteInPlace /build/$sourceRoot/entrypoint.sh \
+              substituteInPlace ./entrypoint.sh \
                 --replace "@SOURCE@" "$out/bin/${entrypoint}.sh" \
                 --replace "@PYTHONEDA_EXTRA_NAMESPACES@" "org" \
                 --replace "@PYTHONPATH@" "$PYTHONPATH" \
@@ -196,17 +195,15 @@
             '';
 
             postInstall = with python.pkgs; ''
-              command pushd /build/$sourceRoot
               for f in $(command find . -name '__init__.py' | grep -v '.deps' | sed 's ^\./  g'); do
                 if [[ ! -e $out/lib/python${pythonMajorMinorVersion}/site-packages/$f ]]; then
                   command mkdir -p $out/lib/python${pythonMajorMinorVersion}/site-packages/"$(command dirname $f)";
                   command cp -r "$(command dirname $f)"/* $out/lib/python${pythonMajorMinorVersion}/site-packages/"$(command dirname $f)";
                 fi
               done
-              command popd
               command mkdir -p $out/bin $out/dist $out/deps/flakes
               command cp dist/${wheelName} $out/dist
-              command cp /build/$sourceRoot/entrypoint.sh $out/bin/${entrypoint}.sh
+              command cp ./entrypoint.sh $out/bin/${entrypoint}.sh
               command chmod +x $out/bin/${entrypoint}.sh
               command echo '#!/usr/bin/env sh' > $out/bin/banner.sh
               command echo "export PYTHONPATH=$PYTHONPATH" >> $out/bin/banner.sh
