@@ -54,6 +54,15 @@
     };
     flake-utils.url = "github:numtide/flake-utils/v1.0.0";
     nixpkgs.url = "github:NixOS/nixpkgs/24.05";
+    pythoneda-shared-pythonlang-application = {
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pythoneda-shared-pythonlang-banner.follows =
+        "pythoneda-shared-pythonlang-banner";
+      inputs.pythoneda-shared-pythonlang-domain.follows =
+        "pythoneda-shared-pythonlang-domain";
+      url = "github:pythoneda-shared-pythonlang-def/application/0.0.111";
+    };
     pythoneda-shared-pythonlang-banner = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
@@ -92,6 +101,7 @@
           builtins.replaceStrings [ "\n" ] [ "" ] "nixpkgs-${nixpkgsVersion}";
         shared = import "${pythoneda-shared-pythonlang-banner}/nix/shared.nix";
         acmsl-licdata-application-for = { acmsl-licdata-events, acmsl-licdata-domain, acmsl-licdata-infrastructure, python
+          , pythoneda-shared-pythonlang-application
           , pythoneda-shared-pythonlang-banner
           , pythoneda-shared-pythonlang-domain}:
           let
@@ -118,6 +128,8 @@
               desc = description;
               inherit homepage pname pythonMajorMinorVersion package
                 version;
+              pythonedaSharedPythonlangApplication =
+                pythoneda-shared-pythonlang-application.version;
               pythonedaSharedPythonlangBanner =
                 pythoneda-shared-pythonlang-banner.version;
               pythonedaSharedPythonlangDomain =
@@ -168,6 +180,7 @@
               acmsl-licdata-domain
               acmsl-licdata-events
               acmsl-licdata-infrastructure
+              pythoneda-shared-pythonlang-application
               pythoneda-shared-pythonlang-banner
               pythoneda-shared-pythonlang-domain
             ];
@@ -338,6 +351,8 @@
               acmsl-licdata-events = acmsl-licdata-events.packages.${system}.acmsl-licdata-events-python39;
               acmsl-licdata-infrastructure = acmsl-licdata-infrastructure.packages.${system}.acmsl-licdata-infrastructure-python39;
               python = pkgs.python39;
+              pythoneda-shared-pythonlang-application =
+                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python39;
               pythoneda-shared-pythonlang-banner =
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python39;
               pythoneda-shared-pythonlang-domain =
@@ -349,6 +364,8 @@
               acmsl-licdata-events = acmsl-licdata-events.packages.${system}.acmsl-licdata-events-python310;
               acmsl-licdata-infrastructure = acmsl-licdata-infrastructure.packages.${system}.acmsl-licdata-infrastructure-python310;
               python = pkgs.python310;
+              pythoneda-shared-pythonlang-application =
+                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python310;
               pythoneda-shared-pythonlang-banner =
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python310;
               pythoneda-shared-pythonlang-domain =
@@ -360,6 +377,8 @@
               acmsl-licdata-events = acmsl-licdata-events.packages.${system}.acmsl-licdata-events-python311;
               acmsl-licdata-infrastructure = acmsl-licdata-infrastructure.packages.${system}.acmsl-licdata-infrastructure-python311;
               python = pkgs.python311;
+              pythoneda-shared-pythonlang-application =
+                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python311;
               pythoneda-shared-pythonlang-banner =
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python311;
               pythoneda-shared-pythonlang-domain =
@@ -371,6 +390,8 @@
               acmsl-licdata-events = acmsl-licdata-events.packages.${system}.acmsl-licdata-events-python312;
               acmsl-licdata-infrastructure = acmsl-licdata-infrastructure.packages.${system}.acmsl-licdata-infrastructure-python312;
               python = pkgs.python312;
+              pythoneda-shared-pythonlang-application =
+                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python312;
               pythoneda-shared-pythonlang-banner =
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python312;
               pythoneda-shared-pythonlang-domain =
@@ -382,6 +403,8 @@
               acmsl-licdata-events = acmsl-licdata-events.packages.${system}.acmsl-licdata-events-python313;
               acmsl-licdata-infrastructure = acmsl-licdata-infrastructure.packages.${system}.acmsl-licdata-infrastructure-python313;
               python = pkgs.python313;
+              pythoneda-shared-pythonlang-application =
+                pythoneda-shared-pythonlang-application.packages.${system}.pythoneda-shared-pythonlang-application-python313;
               pythoneda-shared-pythonlang-banner =
                 pythoneda-shared-pythonlang-banner.packages.${system}.pythoneda-shared-pythonlang-banner-python313;
               pythoneda-shared-pythonlang-domain =

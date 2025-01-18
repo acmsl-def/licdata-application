@@ -30,6 +30,7 @@ acmsl-licdata-domain = "^@acmslLicdataDomain@"
 acmsl-licdata-events = "^@acmslLicdataEvents@"
 acmsl-licdata-infrastructure = "^@acmslLicdataInfrastructure@"
 python = "^@pythonMajorMinorVersion@"
+pythoneda-shared-pythonlang-application = "^@pythonedaSharedPythonlangApplication@"
 pythoneda-shared-pythonlang-banner = "^@pythonedaSharedPythonlangBanner@"
 pythoneda-shared-pythonlang-domain = "^@pythonedaSharedPythonlangDomain@"
 
