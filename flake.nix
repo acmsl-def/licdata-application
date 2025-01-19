@@ -219,11 +219,11 @@
               command cp ./entrypoint.sh $out/bin/${entrypoint}.sh
               command chmod +x $out/bin/${entrypoint}.sh
               command echo '#!/usr/bin/env sh' > $out/bin/banner.sh
-              command echo "export PYTHONPATH=$PYTHONPATH" >> $out/bin/banner.sh
+              command echo "COMMAND export PYTHONPATH=$PYTHONPATH" >> $out/bin/banner.sh
               command echo "command echo 'Running $out/bin/banner'" >> $out/bin/banner.sh
               command echo "${python}/bin/python $out/lib/python${pythonMajorMinorVersion}/site-packages/${banner_file} \$@" >> $out/bin/banner.sh
               command chmod +x $out/bin/banner.sh
-              for dep in ${acmsl-licdata-domain} ${acmsl-licdata-events} ${acmsl-licdata-infrastructure} ${pythoneda-shared-pythonlang-banner} ${pythoneda-shared-pythonlang-domain}; do
+              for dep in ${acmsl-licdata-domain} ${acmsl-licdata-events} ${acmsl-licdata-infrastructure} ${pythoneda-shared-pythonlang-application} ${pythoneda-shared-pythonlang-banner} ${pythoneda-shared-pythonlang-domain}; do
                 command cp -r $dep/dist/* $out/deps || true
                 if [ -e $dep/deps ]; then
                   command cp -r $dep/deps/* $out/deps || true
