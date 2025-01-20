@@ -161,16 +161,16 @@
         "pythoneda-shared-pythonlang-infrastructure": "pythoneda-shared-pythonlang-infrastructure_2"
       },
       "locked": {
-        "lastModified": 1737377339,
-        "narHash": "sha256-GIaYtKQEGNCDUpovnsQUc1zdPDzbpAhYO2HnCbO2wxU=",
+        "lastModified": 1737392839,
+        "narHash": "sha256-hWnvQ8qj4k2SBtQPt1Z4sSL9HyyyS0OJs/+dgTf1KYI=",
         "owner": "acmsl-def",
         "repo": "licdata-infrastructure",
-        "rev": "a80cc3549332a3122b7871b7532869106de278c1",
+        "rev": "b5a8df8387e03392defe3cbad8d6b20f6e86efb0",
         "type": "github"
       },
       "original": {
         "owner": "acmsl-def",
-        "ref": "0.0.32",
+        "ref": "0.0.33",
         "repo": "licdata-infrastructure",
         "type": "github"
       }
