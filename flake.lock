@@ -146,6 +146,7 @@
           "acmsl-licdata-events"
         ],
         "acmsl-licdata-events-infrastructure": "acmsl-licdata-events-infrastructure",
+        "azure-functions": "azure-functions",
         "flake-utils": [
           "flake-utils"
         ],
@@ -161,17 +162,47 @@
         "pythoneda-shared-pythonlang-infrastructure": "pythoneda-shared-pythonlang-infrastructure_2"
       },
       "locked": {
-        "lastModified": 1737447484,
-        "narHash": "sha256-bTaKHt1gZ61dFEXbj3wcI6tUxQXNapK7PpMTeDFBQYg=",
+        "lastModified": 1737525727,
+        "narHash": "sha256-Kvq2sEvLjxEsQtY2V5RNlW/7ZXLWKyp3qC1nhazKOrI=",
         "owner": "acmsl-def",
         "repo": "licdata-infrastructure",
-        "rev": "72a44eede5f84d304d15a25a1419044bb51dcd58",
+        "rev": "2ee6f80d5e1828d2e8563c3f762b34c90edee7e0",
         "type": "github"
       },
       "original": {
         "owner": "acmsl-def",
-        "ref": "0.0.35",
+        "ref": "0.0.36",
         "repo": "licdata-infrastructure",
+        "type": "github"
+      }
+    },
+    "azure-functions": {
+      "inputs": {
+        "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "acmsl-licdata-infrastructure",
+          "nixpkgs"
+        ],
+        "pythoneda-shared-pythonlang-banner": "pythoneda-shared-pythonlang-banner",
+        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain"
+      },
+      "locked": {
+        "dir": "azure-functions",
+        "lastModified": 1733506042,
+        "narHash": "sha256-lbpRHx2DQH/6ERg/kQq4JCiAIWBgODgf5c/mK9dhWwo=",
+        "owner": "rydnr",
+        "repo": "nix-flakes",
+        "rev": "b4233ce46f01ce551be2b30dd5542104697b177d",
+        "type": "github"
+      },
+      "original": {
+        "dir": "azure-functions",
+        "owner": "rydnr",
+        "ref": "azure-functions-1.21.3.2",
+        "repo": "nix-flakes",
         "type": "github"
       }
     },
@@ -531,6 +562,34 @@
     "pythoneda-shared-pythonlang-banner": {
       "inputs": {
         "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "azure-functions",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "acmsl-licdata-infrastructure",
+          "azure-functions",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733487266,
+        "narHash": "sha256-T4/WTHydMJrxLRYqnlU/OA+fZtmhS8tF4EHGGgHFbxs=",
+        "owner": "pythoneda-shared-pythonlang-def",
+        "repo": "banner",
+        "rev": "280b75ffcd3a871e157e7c163ba19ac2c615e872",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-shared-pythonlang-def",
+        "ref": "0.0.72",
+        "repo": "banner",
+        "type": "github"
+      }
+    },
+    "pythoneda-shared-pythonlang-banner_2": {
+      "inputs": {
+        "flake-utils": [
           "flake-utils"
         ],
         "nixpkgs": [
@@ -555,6 +614,39 @@
     "pythoneda-shared-pythonlang-domain": {
       "inputs": {
         "flake-utils": [
+          "acmsl-licdata-infrastructure",
+          "azure-functions",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "acmsl-licdata-infrastructure",
+          "azure-functions",
+          "nixpkgs"
+        ],
+        "pythoneda-shared-pythonlang-banner": [
+          "acmsl-licdata-infrastructure",
+          "azure-functions",
+          "pythoneda-shared-pythonlang-banner"
+        ]
+      },
+      "locked": {
+        "lastModified": 1733487391,
+        "narHash": "sha256-Dj9kIIpJgW/XGbS3F1jIVo73qTwj1zJorYFB6oVbTj0=",
+        "owner": "pythoneda-shared-pythonlang-def",
+        "repo": "domain",
+        "rev": "32c8d0a011d81cbed779f647f1c3cb01255320e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pythoneda-shared-pythonlang-def",
+        "ref": "0.0.94",
+        "repo": "domain",
+        "type": "github"
+      }
+    },
+    "pythoneda-shared-pythonlang-domain_2": {
+      "inputs": {
+        "flake-utils": [
           "pythoneda-shared-pythonlang-application",
           "pythoneda-shared-artifact-shared",
           "pythoneda-shared-git-shared",
@@ -591,7 +683,7 @@
         "type": "github"
       }
     },
-    "pythoneda-shared-pythonlang-domain_2": {
+    "pythoneda-shared-pythonlang-domain_3": {
       "inputs": {
         "flake-utils": [
           "pythoneda-shared-pythonlang-application",
@@ -633,7 +725,7 @@
         "type": "github"
       }
     },
-    "pythoneda-shared-pythonlang-domain_3": {
+    "pythoneda-shared-pythonlang-domain_4": {
       "inputs": {
         "flake-utils": [
           "flake-utils"
@@ -789,7 +881,7 @@
           "pythoneda-shared-git-shared",
           "pythoneda-shared-pythonlang-banner"
         ],
-        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain"
+        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_2"
       },
       "locked": {
         "lastModified": 1737192846,
@@ -829,7 +921,7 @@
           "pythoneda-shared-git-shared",
           "pythoneda-shared-pythonlang-banner"
         ],
-        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_2"
+        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_3"
       },
       "locked": {
         "lastModified": 1737192846,
@@ -854,8 +946,8 @@
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs",
         "pythoneda-shared-pythonlang-application": "pythoneda-shared-pythonlang-application",
-        "pythoneda-shared-pythonlang-banner": "pythoneda-shared-pythonlang-banner",
-        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_3"
+        "pythoneda-shared-pythonlang-banner": "pythoneda-shared-pythonlang-banner_2",
+        "pythoneda-shared-pythonlang-domain": "pythoneda-shared-pythonlang-domain_4"
       }
     },
     "stringtemplate3": {
