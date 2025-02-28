@@ -22,7 +22,7 @@
     acmsl-licdata-domain = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-      url = "github:acmsl-def/licdata-domain/0.0.34";
+      url = "github:acmsl-def/licdata-domain/0.0.35";
       inputs.acmsl-licdata-events.follows =
         "acmsl-licdata-events";
       inputs.pythoneda-shared-pythonlang-banner.follows =
@@ -33,7 +33,7 @@
     acmsl-licdata-events = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-      url = "github:acmsl-def/licdata-events/0.0.31";
+      url = "github:acmsl-def/licdata-events/0.0.33";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
       inputs.pythoneda-shared-pythonlang-domain.follows =
@@ -42,7 +42,7 @@
     acmsl-licdata-infrastructure = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-      url = "github:acmsl-def/licdata-infrastructure/0.0.43";
+      url = "github:acmsl-def/licdata-infrastructure/0.0.44";
       inputs.acmsl-licdata-domain.follows =
         "acmsl-licdata-domain";
       inputs.acmsl-licdata-events.follows =
@@ -61,19 +61,19 @@
         "pythoneda-shared-pythonlang-banner";
       inputs.pythoneda-shared-pythonlang-domain.follows =
         "pythoneda-shared-pythonlang-domain";
-      url = "github:pythoneda-shared-pythonlang-def/application/0.0.122";
+      url = "github:pythoneda-shared-pythonlang-def/application/0.0.125";
     };
     pythoneda-shared-pythonlang-banner = {
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
-      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.83";
+      url = "github:pythoneda-shared-pythonlang-def/banner/0.0.85";
     };
     pythoneda-shared-pythonlang-domain = {
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.pythoneda-shared-pythonlang-banner.follows =
         "pythoneda-shared-pythonlang-banner";
-      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.128";
+      url = "github:pythoneda-shared-pythonlang-def/domain/0.0.131";
     };
   };
   outputs = inputs:
